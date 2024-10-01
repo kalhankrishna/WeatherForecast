@@ -1,0 +1,44 @@
+.weather-container {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping */
+  padding: 20px 0; /* Optional padding for vertical space */
+}
+
+.weather-cards {
+  display: flex; /* Use flexbox to align cards in a row */
+}
+
+.weather-card {
+  background: #f0f0f0; /* Card background color */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px; /* Inner padding */
+  margin: 0 10px; /* Space between cards */
+  min-width: 200px; /* Set a minimum width for cards */
+  max-width: 220px; /* Optional: Limit max width for uniformity */
+  flex: 0 0 auto; /* Prevent card shrinking */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+  display: flex; /* Use flexbox to align items */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Space items evenly */
+}
+
+.weather-icon {
+  width: 50px; /* Set a fixed width for the icon */
+  height: 50px; /* Set a fixed height for the icon */
+  margin-bottom: 8px; /* Space below the icon */
+}
+
+.weather-card h4 {
+  font-size: 16px; /* Adjust font size for the date */
+  margin: 0; /* Remove margin to avoid extra spacing */
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden; /* Hide overflowed text */
+  text-overflow: ellipsis; /* Show ellipsis for overflowed text */
+}
+
+.weather-card p {
+  margin: 5px 0; /* Space between paragraphs */
+  flex-grow: 1; /* Allow text paragraphs to grow */
+  overflow: hidden; /* Hide overflowed content */
+  text-overflow: ellipsis; /* Show ellipsis for overflowed text */
+}

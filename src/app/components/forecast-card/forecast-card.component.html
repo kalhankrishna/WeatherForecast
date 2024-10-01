@@ -1,9 +1,24 @@
 <div *ngIf="forecast">
   <h3>Weather Forecast for {{ forecast.location.name }}</h3>
-  <ul>
-    <li *ngFor="let day of forecast.forecast.forecastday">
-      {{ day.date }}: {{ day.day.condition.text }}, Max Temp:
-      {{ day.day.maxtemp_c }}°C
-    </li>
-  </ul>
+  <div class="weather-container">
+    <div class="weather-cards">
+      <div
+        *ngFor="let day of forecast.forecast.forecastday"
+        class="weather-card"
+      >
+        <img
+          [src]="day.day.condition.icon"
+          alt="Weather Icon"
+          class="weather-icon"
+        />
+        <h4>{{ day.date | date : "fullDate" }}</h4>
+        <p>{{ day.day.condition.text }}</p>
+        <p>Max Temp: {{ day.day.maxtemp_c }}°C</p>
+        <p>Min Temp: {{ day.day.mintemp_c }}°C</p>
+        <p>Avg Temp: {{ day.day.avgtemp_c }}°C</p>
+        <p>Will it rain? {{ day.day.daily_will_it_rain ? "Yes" : "No" }}</p>
+        <p>Chance of Rain: {{ day.day.daily_chance_of_rain }}%</p>
+      </div>
+    </div>
+  </div>
 </div>
