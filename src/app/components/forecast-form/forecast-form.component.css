@@ -1,0 +1,18 @@
+.mat-form-field {
+  display: inline-block;
+}
+
+.first-field {
+  margin-right: 20px;
+}
+
+button {
+  margin-left: 20px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+form {
+  margin-top: 40px;
+  margin-left: 80px;
+}

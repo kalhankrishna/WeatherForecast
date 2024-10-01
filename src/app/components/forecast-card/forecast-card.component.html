@@ -1,0 +1,9 @@
+<div *ngIf="forecast">
+  <h3>Weather Forecast for {{ forecast.location.name }}</h3>
+  <ul>
+    <li *ngFor="let day of forecast.forecast.forecastday">
+      {{ day.date }}: {{ day.day.condition.text }}, Max Temp:
+      {{ day.day.maxtemp_c }}°C
+    </li>
+  </ul>
+</div>

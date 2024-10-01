@@ -1,0 +1,17 @@
+<form>
+  <mat-form-field class="first-field">
+    <mat-label>Location</mat-label>
+    <input matInput type="text" [(ngModel)]="location" name="location" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Days</mat-label>
+    <mat-select [(ngModel)]="selectedDay" name="days">
+      <mat-option *ngFor="let day of days" [value]="day">{{ day }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="onGetForecast()">
+    Get Forecast
+  </button>
+</form>
