@@ -1,24 +1,32 @@
-<div *ngIf="forecast">
-  <h3>Weather Forecast for {{ forecast.location.name }}</h3>
-  <div class="weather-container">
-    <div class="weather-cards">
-      <div
-        *ngFor="let day of forecast.forecast.forecastday"
-        class="weather-card"
-      >
-        <img
-          [src]="day.day.condition.icon"
-          alt="Weather Icon"
-          class="weather-icon"
-        />
-        <h4>{{ day.date | date : "fullDate" }}</h4>
-        <p>{{ day.day.condition.text }}</p>
-        <p>Max Temp: {{ day.day.maxtemp_c }}°C</p>
-        <p>Min Temp: {{ day.day.mintemp_c }}°C</p>
-        <p>Avg Temp: {{ day.day.avgtemp_c }}°C</p>
-        <p>Will it rain? {{ day.day.daily_will_it_rain ? "Yes" : "No" }}</p>
-        <p>Chance of Rain: {{ day.day.daily_chance_of_rain }}%</p>
-      </div>
-    </div>
+<div *ngIf="forecast && currentDay">
+  <h3 class="location-header">
+    Weather Forecast for {{ forecast.location.name }}
+  </h3>
+
+  <div class="weather-card-large">
+    <img
+      [src]="currentDay.day.condition.icon"
+      alt="Weather Icon"
+      class="weather-icon"
+    />
+    <h4>{{ currentDay.date | date : "fullDate" }}</h4>
+    <p>{{ currentDay.day.condition.text }}</p>
+    <p>Max Temp: {{ currentDay.day.maxtemp_c }}°C</p>
+    <p>Min Temp: {{ currentDay.day.mintemp_c }}°C</p>
+    <p>Avg Temp: {{ currentDay.day.avgtemp_c }}°C</p>
+    <p>Will it rain? {{ currentDay.day.daily_will_it_rain ? "Yes" : "No" }}</p>
+    <p>Chance of Rain: {{ currentDay.day.daily_chance_of_rain }}%</p>
+  </div>
+
+  <div class="navigation-buttons">
+    <button (click)="prevDay()" [disabled]="currentIndex === 0">
+      ◀️ Previous
+    </button>
+    <button
+      (click)="nextDay()"
+      [disabled]="currentIndex === forecast.forecast.forecastday.length - 1"
+    >
+      Next ▶️
+    </button>
   </div>
 </div>
